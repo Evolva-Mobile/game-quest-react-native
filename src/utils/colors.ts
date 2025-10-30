@@ -1,8 +1,7 @@
 export default {
-    primary: '#007bff',
-    secondary: '#6c757d',
-    background: '#f8f9fa',
-    textDark: '#212529',
-    textLight: '#ffffff',
-    danger: '#dc3545',
+    primary: '#FF6B6B',
+    secondary: '#00B3B3',
+    neutral100: '#101828',
+    neutral80: '39465A',
+    gray60: '#B9BFCB'
 };

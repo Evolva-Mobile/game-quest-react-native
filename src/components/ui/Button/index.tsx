@@ -26,10 +26,12 @@ export function Button({ children, background, icon, onPress}: ButtonProps) {
 
 const styles = StyleSheet.create({
     btnContainer: {
-        borderRadius: 12,
+        borderRadius: 18,
         paddingHorizontal: 8,
         paddingVertical: 14,
+        height: 55,
         flexDirection: "row",
+        alignItems: 'center',
         gap: 8
     },
     text: {
