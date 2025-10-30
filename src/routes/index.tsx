@@ -1,50 +1,24 @@
-import React from "react";
-import { SafeAreaView, StyleSheet } from "react-native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import {
-  RouteProp,
-} from "@react-navigation/native";
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import Login from "../screens/auth/login";
-import CreateAccount from "../screens/auth/create-account";
+// Importando telas
+import LoginScreen from '../screens/auth/login';
 
-
-export interface ParamsScreen {
-  token: string;
-}
-
-export interface ParamsNumberScreen {
-  id: number;
-}
-
-
+// Definindo tipos das rotas
 export type RootStackParamList = {
-  Login: undefined;
-  CreatAccount: undefined;
+  Login: undefined; 
+  Details: { itemId: number; otherParam?: string }; // com parâmetros
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
 
-export type RootRouteProps<RouteName extends keyof RootStackParamList> =
-  RouteProp<RootStackParamList, RouteName>;
-
 export default function AppRoutes() {
-
   return (
-    <SafeAreaView style={styles.safeArea}>
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Login" component={Login} />
-        <Stack.Screen name="CreatAccount" component={CreateAccount} />
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName="Login">
+        <Stack.Screen name="Login" component={LoginScreen} />
       </Stack.Navigator>
-    </SafeAreaView>
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  safeArea: {
-    flex: 1,
-  },
-});
-
-
-
