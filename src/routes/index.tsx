@@ -7,6 +7,8 @@ import LoginScreen from '../screens/auth/login';
 // Definindo tipos das rotas
 export type RootStackParamList = {
   Login: undefined;
+  Register: undefined;
+  ForguetPassword: undefined;
   Details: { itemId: number; otherParam?: string }; // com parâmetros
 };
 
@@ -18,10 +20,11 @@ const AppRoutes: React.FC = () => {
       initialRouteName="Login"
       screenOptions={{
         headerShown: false,
-        contentStyle: { backgroundColor: '#ffffff' }
+        contentStyle: { backgroundColor: '#FFF' }
       }}>
-        
       <Stack.Screen name="Login" component={LoginScreen} />
+      <Stack.Screen name="Register" component={LoginScreen} />
+      <Stack.Screen name="ForguetPassword" component={LoginScreen} />
     </Stack.Navigator>
   );
 }
