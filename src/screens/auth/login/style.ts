@@ -17,7 +17,7 @@ export const styles = StyleSheet.create({
     container: {
         flex: 1,
         padding: 16,
-        justifyContent: 'space-between', // <-- distribui o conteúdo verticalmente
+        justifyContent: 'space-between', 
     },
     title: {
         padding: 18,
@@ -25,5 +25,10 @@ export const styles = StyleSheet.create({
         textAlign: 'center',
         fontWeight: '500',
     },  
+    footerText: {
+        flexDirection: "row",
+        gap: 4,
+        justifyContent: "center"
+    }
 
 });

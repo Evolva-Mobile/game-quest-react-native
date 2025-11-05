@@ -3,6 +3,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 // Importando telas
 import LoginScreen from '../screens/auth/login';
+import RegisterScreen from '../screens/auth/create-account';
 
 // Definindo tipos das rotas
 export type RootStackParamList = {
@@ -23,7 +24,7 @@ const AppRoutes: React.FC = () => {
         contentStyle: { backgroundColor: '#FFF' }
       }}>
       <Stack.Screen name="Login" component={LoginScreen} />
-      <Stack.Screen name="Register" component={LoginScreen} />
+      <Stack.Screen name='Register' component={RegisterScreen} />
       <Stack.Screen name="ForguetPassword" component={LoginScreen} />
     </Stack.Navigator>
   );

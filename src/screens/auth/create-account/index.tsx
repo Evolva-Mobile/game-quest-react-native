@@ -12,7 +12,7 @@ type userProps = {
     teste?: string
 }
 
-export default function CreateAccount() {
+export default function RegisterScreen() {
     const [user, setUser] = useState<userProps>({
         name: "",
         email: "",
@@ -24,7 +24,7 @@ export default function CreateAccount() {
         try {
             const response = await PostRequest("", user)
             if (response.sucess) {
-                
+
             }
         } catch (error) {
             console.log("erro ao criar conta: ", error);
