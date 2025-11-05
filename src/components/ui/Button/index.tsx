@@ -32,7 +32,8 @@ const styles = StyleSheet.create({
         height: 55,
         flexDirection: "row",
         alignItems: 'center',
-        gap: 8
+        gap: 8,
+        width: "100%"
     },
     text: {
         textAlign: "center",
