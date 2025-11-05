@@ -1,10 +1,6 @@
 import { StyleSheet } from 'react-native'
 
 export const styles = StyleSheet.create({
-    containerLogin: {
-        flexDirection: "column", 
-        justifyContent: "space-between"
-    },
     imgContainer: {
         alignItems: 'center',
         justifyContent: "center"
@@ -19,15 +15,21 @@ export const styles = StyleSheet.create({
         gap: 28,
         flexDirection: 'column'
     },
-    formButton: {
-        gap: 16,
-        justifyContent: "center",
-        alignItems: "center"
+    container: {
+        flex: 1,
+        padding: 16,
+        justifyContent: 'space-between',
     },
-    textAnother: {
+    title: {
+        padding: 18,
+        fontSize: 32,
+        textAlign: 'center',
+        fontWeight: '500',
+    },
+    footerText: {
         flexDirection: "row",
-        alignItems: "center",
-        marginVertical: 14,
-        width: "100%",
+        gap: 4,
+        justifyContent: "center"
     }
+
 });
