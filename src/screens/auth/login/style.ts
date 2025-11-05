@@ -14,4 +14,16 @@ export const styles = StyleSheet.create({
         gap: 28,
         flexDirection: 'column'
     },
+    container: {
+        flex: 1,
+        padding: 16,
+        justifyContent: 'space-between', // <-- distribui o conteúdo verticalmente
+    },
+    title: {
+        padding: 18,
+        fontSize: 32,
+        textAlign: 'center',
+        fontWeight: '500',
+    },  
+
 });
