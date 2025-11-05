@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { StyleSheet, Text, TextInput, TextInputProps, View } from "react-native";
-import colors from "@/src/utils/colors"; // seu arquivo de cores
+import { colors } from "@/src/styles/colors";
 
 type InputProps = {
     label: string;

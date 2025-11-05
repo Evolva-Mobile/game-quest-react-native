@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
-import { View, Text, Image, TouchableOpacity } from 'react-native';
+import { useState } from 'react';
+import { Image, Text, TouchableOpacity, View } from 'react-native';
 
-import ImageLogin from "@/assets/images/Scenes/2x/Victory-2x.png"
+import ImageLogin from "@/assets/images/Scenes/2x/Victory-2x.png";
+
 import { InputText } from '@/src/components/ui/InputText';
-import { Button } from '@/src/components/ui/Button';
-import { styles } from './style';
 import { PostRequest } from '@/src/config/api-request/PostRequest';
-import { useNavigation } from '@react-navigation/native';
+import { useAppNavigation } from '@/src/utils/navigation';
+import { styles } from './style';
+import { Button } from '@/src/components/ui/Button';
+import { ButtonGoogle } from '@/src/components/ui/ButtonGoogle';
 
 export type UserProps = {
     email: string;
@@ -14,7 +16,7 @@ export type UserProps = {
 };
 
 export default function LoginScreen() {
-    const navigation = useNavigation();
+    const navigation = useAppNavigation();
     const [user, setUser] = useState<UserProps>({
         email: "",
         password: ""
@@ -50,15 +52,31 @@ export default function LoginScreen() {
                     value={user.email}
                     onChangeText={(text) => setUser({ ...user, email: text })}
                 />
-                <InputText
-                    label="Senha"
-                    value={user.password}
-                    onChangeText={(text) => setUser({ ...user, password: text })}
-                />
-                <Button background="#000" onPress={handleSubmit}>
-                    Entrar
-                </Button>
 
+                <View>
+                    <InputText
+                        label="Senha"
+                        value={user.password}
+                        onChangeText={(text) => setUser({ ...user, password: text })}
+                    />
+                    <TouchableOpacity onPress={() => navigation.navigate('ForgotPassword')}>
+                        <Text style={styles.forgotPassword}>Esqueci minha senha</Text>
+                    </TouchableOpacity>
+                </View>
+
+                <View>
+                    <Button background="#000" onPress={handleSubmit}>
+                        Entrar
+                    </Button>
+
+                    <View style={styles.dividerContainer}>
+                        <View style={styles.line} />
+                        <Text style={styles.dividerText}>Ou acesse com</Text>
+                        <View style={styles.line} />
+                    </View>
+
+                    <ButtonGoogle />
+                </View>
             </View>
 
             <View style={styles.footerText}>

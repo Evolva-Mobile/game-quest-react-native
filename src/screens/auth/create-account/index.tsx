@@ -1,18 +1,22 @@
-import { View, Text } from "react-native";
-import { styles } from "./style";
+
 import { InputText } from "@/src/components/ui/InputText";
-import { Button } from '@/src/components/ui/Button';
-import { useState } from "react";
 import { PostRequest } from "@/src/config/api-request/PostRequest";
+import { useAppNavigation } from "@/src/utils/navigation";
+import { useState } from "react";
+import { Text, TouchableOpacity, View } from "react-native";
+import { styles } from "./style";
+import { Button } from "@/src/components/ui/Button";
+import { ButtonGoogle } from "@/src/components/ui/ButtonGoogle";
 
 type userProps = {
     name: string,
     email: string
     password: string
-    teste?: string
+    repeatPassword?: string
 }
 
 export default function RegisterScreen() {
+    const navigation = useAppNavigation();
     const [user, setUser] = useState<userProps>({
         name: "",
         email: "",
@@ -35,20 +39,15 @@ export default function RegisterScreen() {
         <View style={styles.container}>
             <View>
                 <Text style={styles.title}>
-                    Acompanhe suas metas e transforme tarefas em conquistas
+                    Comece a se divertir emquanto cumpre tarefas
                 </Text>
             </View>
 
             <View style={styles.formUser}>
                 <InputText
-                    label="E-mail"
+                    label="Nome"
                     value={user.name}
                     onChangeText={(text) => setUser({ ...user, name: text })}
-                />
-                <InputText
-                    label="Senha"
-                    value={user.password}
-                    onChangeText={(text) => setUser({ ...user, password: text })}
                 />
                 <InputText
                     label="E-mail"
@@ -56,13 +55,40 @@ export default function RegisterScreen() {
                     onChangeText={(text) => setUser({ ...user, email: text })}
                 />
                 <InputText
-                    label="E-mail"
-                    value={user.teste}
-                    onChangeText={(text) => setUser({ ...user, teste: text })}
+                    label="Senha"
+                    value={user.password}
+                    onChangeText={(text) => setUser({ ...user, password: text })}
                 />
-                <Button background="#000" onPress={handleSubmit}>
-                    Entrar
-                </Button>
+                <View>
+                    <Text style={styles.verifyPassword}>Sua senha deve conter no mínimo 6 caracteres.</Text>
+                    <InputText
+                        label="Repita a senha"
+                        value={user.repeatPassword}
+                        onChangeText={(text) => setUser({ ...user, repeatPassword: text })}
+                    />
+                </View>
+
+                <View>
+                    <Button background="#000" onPress={handleSubmit}>
+                        Entrar
+                    </Button>
+
+                    <View style={styles.dividerContainer}>
+                        <View style={styles.line} />
+                        <Text style={styles.dividerText}>Ou acesse com</Text>
+                        <View style={styles.line} />
+                    </View>
+
+                    <ButtonGoogle />
+                </View>
+            </View>
+
+
+            <View style={styles.footerText}>
+                <Text>Ja tem uma conta? </Text>
+                <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+                    <Text>Entrar na conta</Text>
+                </TouchableOpacity>
             </View>
         </View>
     );
