@@ -3,13 +3,14 @@ import { InputText } from "@/src/components/ui/InputText";
 import { PostRequest } from "@/src/config/api-request/PostRequest";
 import { useAppNavigation } from "@/src/utils/navigation";
 import { useState } from "react";
-import { TouchableOpacity, View } from "react-native";
+import { View } from "react-native";
 import { styles } from "./style";
 import { Button } from "@/src/components/ui/Button";
-import { ButtonGoogle } from "@/src/components/ui/ButtonGoogle";
-import { Icon } from "@/src/components/ui/Icon";
 import { USER } from "@/src/config/api-routes/user";
 import { GlobalText } from "@/src/components/ui/GlobalText";
+import { HeaderBack } from "@/src/components/layout/headerBack";
+
+
 
 type userProps = {
     name: string,
@@ -18,7 +19,7 @@ type userProps = {
     password_confirmation: string
 }
 
-export default function RegisterScreen() {
+export default function EditUserScreen() {
     const navigation = useAppNavigation();
     const [user, setUser] = useState<userProps>({
         name: "",
@@ -30,7 +31,7 @@ export default function RegisterScreen() {
     const handleSubmit = async () => {
         console.log("usuario", user);
         try {
-            const response = await PostRequest(USER.REGISTER(), user)
+            const response = await PostRequest(USER.UPDATE(''), user)
             if (response.sucess) {
                 console.log("conta criada");
                 navigation.navigate('Login')
@@ -42,14 +43,14 @@ export default function RegisterScreen() {
 
     return (
         <View style={styles.container}>
+            <HeaderBack title={"Editar conta"} onPress={navigation.goBack}/>
             <View>
                 <GlobalText variant={'medium'} style={styles.title}>
-                    Comece a se divertir emquanto cumpre tarefas
+                    Dados pessoais
                 </GlobalText>
             </View>
-
-            <View style={styles.formUser}>
-                <View style={styles.firtsFilds}>
+            <View style={styles.containerForm}>
+                <View style={styles.formUser}>
                     <InputText
                         label="Nome"
                         value={user.name}
@@ -67,41 +68,10 @@ export default function RegisterScreen() {
                         onChangeText={(text) => setUser({ ...user, password: text })}
                     />
                 </View>
-                <View>
-                    <View style={styles.verifyPasswordContainer}>
-                        <Icon name="BadgeCheck" size={14} color="#d0d5dd" />
-                        <GlobalText style={styles.verifyPassword}>Sua senha deve conter no mínimo 6 caracteres.</GlobalText>
-                    </View>
 
-                    <InputText
-                        label="Repita a senha"
-                        type="password"
-                        value={user.password_confirmation}
-                        onChangeText={(text) => setUser({ ...user, password_confirmation: text })}
-                    />
-                </View>
-
-                <View style={styles.containerSubmit}>
-                    <Button color={"secondary"} onPress={handleSubmit}>
-                        Criar conta
-                    </Button>
-
-                    <View style={styles.dividerContainer}>
-                        <View style={styles.line} />
-                        <GlobalText style={styles.dividerText}>Ou acesse com</GlobalText>
-                        <View style={styles.line} />
-                    </View>
-
-                    <ButtonGoogle />
-                </View>
-            </View>
-
-
-            <View style={styles.footerText}>
-                <GlobalText>Ja tem uma conta? </GlobalText>
-                <TouchableOpacity onPress={() => navigation.navigate('Settings')}>
-                    <GlobalText style={styles.linkFooterText}>Entrar na conta</GlobalText>
-                </TouchableOpacity>
+                <Button onPress={handleSubmit}>
+                    Salvar dados
+                </Button>
             </View>
         </View>
     );

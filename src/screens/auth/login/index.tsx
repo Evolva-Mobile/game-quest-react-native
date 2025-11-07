@@ -9,6 +9,7 @@ import { useAppNavigation } from '@/src/utils/navigation';
 import { styles } from './style';
 import { Button } from '@/src/components/ui/Button';
 import { ButtonGoogle } from '@/src/components/ui/ButtonGoogle';
+import { GlobalText } from '@/src/components/ui/GlobalText';
 
 export type UserProps = {
     email: string;
@@ -38,9 +39,10 @@ export default function LoginScreen() {
     return (
         <View style={styles.container}>
             <View>
-                <Text style={styles.title}>
+                <GlobalText variant='medium' style={styles.title}>
                     Acompanhe suas metas e transforme tarefas em conquistas
-                </Text>
+                </GlobalText>
+                
                 <View style={styles.imgContainer}>
                     <Image source={ImageLogin} style={styles.imgLogin} />
                 </View>
@@ -56,22 +58,24 @@ export default function LoginScreen() {
                 <View>
                     <InputText
                         label="Senha"
+                        type="password"
                         value={user.password}
                         onChangeText={(text) => setUser({ ...user, password: text })}
                     />
                     <TouchableOpacity onPress={() => navigation.navigate('ForgotPassword')}>
-                        <Text style={styles.forgotPassword}>Esqueci minha senha</Text>
+                        <GlobalText style={styles.forgotPassword}>Esqueci minha senha</GlobalText>
                     </TouchableOpacity>
+                    <GlobalText />
                 </View>
 
                 <View>
-                    <Button background="#000" onPress={handleSubmit}>
+                    <Button onPress={handleSubmit}>
                         Entrar
                     </Button>
 
                     <View style={styles.dividerContainer}>
                         <View style={styles.line} />
-                        <Text style={styles.dividerText}>Ou acesse com</Text>
+                        <GlobalText style={styles.dividerText}>Ou acesse com</GlobalText>
                         <View style={styles.line} />
                     </View>
 
@@ -80,9 +84,9 @@ export default function LoginScreen() {
             </View>
 
             <View style={styles.footerText}>
-                <Text>Ainda não tem uma conta? </Text>
+                <GlobalText>Ainda não tem uma conta? </GlobalText>
                 <TouchableOpacity onPress={() => navigation.navigate('Register')}>
-                    <Text>Criar conta</Text>
+                    <GlobalText style={styles.linkFooterText}>Criar conta</GlobalText>
                 </TouchableOpacity>
             </View>
         </View>

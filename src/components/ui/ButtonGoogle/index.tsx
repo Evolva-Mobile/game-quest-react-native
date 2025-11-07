@@ -1,9 +1,10 @@
 import { Image, TouchableOpacity, StyleSheet, Text } from "react-native"
 import ImageGoogle from '@/assets/images/another/google-logo-48.png'
+import { GlobalText } from "../GlobalText";
 export function ButtonGoogle() {
     return (
         <TouchableOpacity style={styles.btnContainer}> 
-            <Text>Login com Google</Text>
+            <GlobalText>Login com Google</GlobalText>
             <Image source={ImageGoogle} style={styles.img} />
         </TouchableOpacity>
     )

@@ -1,14 +1,19 @@
-import React, { useState } from "react";
-import { StyleSheet, Text, TextInput, TextInputProps, View } from "react-native";
-import { colors } from "@/src/styles/colors";
+import { colors } from "@/src/styles/theme";
+import { useState } from "react";
+import { StyleSheet, Text, TextInput, TextInputProps, TouchableOpacity, View } from "react-native";
+import { Icon } from "../Icon";
+import { GlobalText } from "../GlobalText";
+
 
 type InputProps = {
     label: string;
     icon?: string;
+    type?: string | "password"
 } & TextInputProps;
 
-export function InputText({ icon, label, value, onChangeText }: InputProps) {
-    const [isFocused, setIsFocused] = useState(false);
+export function InputText({ icon, label, value, onChangeText, type }: InputProps) {
+    const [isFocused, setIsFocused] = useState<boolean>(false);
+    const [show, setShow] = useState<boolean>(false);
 
     return (
         <View
@@ -20,18 +25,30 @@ export function InputText({ icon, label, value, onChangeText }: InputProps) {
                 },
             ]}
         >
-            <Text style={styles.textLabel}>{label}</Text>
+            <GlobalText style={styles.textLabel}>{label}</GlobalText>
+            {type === "password" ? (
+                <>
+                    <TextInput
+                        style={styles.input}
+                        value={value}
+                        secureTextEntry={!show}
+                        onChangeText={onChangeText}
+                        onFocus={() => setIsFocused(true)}
+                        onBlur={() => setIsFocused(false)}
+                    />
+                    <TouchableOpacity onPress={() => setShow(!show)}>
+                        {!show ? <Icon name="Eye" size={18} /> : <Icon name="EyeOffIcon" size={18} />}
+                    </TouchableOpacity>
 
-            <TextInput
-                style={styles.input}
-                value={value}
-                onChangeText={onChangeText}
-                onFocus={() => setIsFocused(true)} 
-                onBlur={() => setIsFocused(false)}   
-            />
-
-            {icon && (
-                <Text style={{ color: "#000" }}>icone</Text>
+                </>
+            ) : (
+                <TextInput
+                    style={styles.input}
+                    value={value}
+                    onChangeText={onChangeText}
+                    onFocus={() => setIsFocused(true)}
+                    onBlur={() => setIsFocused(false)}
+                />
             )}
         </View>
     );
@@ -54,7 +71,7 @@ const styles = StyleSheet.create({
     },
     textLabel: {
         position: "absolute",
-        top: -15,
+        top: -12,
         left: 15,
         paddingVertical: 2,
         borderRadius: 8,

@@ -1,5 +1,5 @@
-import { StyleSheet } from 'react-native'
-import { colors } from "@/src/styles/colors";
+import { colors } from "@/src/styles/theme";
+import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
     container: {
@@ -9,10 +9,11 @@ export const styles = StyleSheet.create({
     },
 
     title: {
-        padding: 18,
+        paddingVertical: 18,
+        paddingHorizontal: 8,
         fontSize: 32,
+        width: "100%",
         textAlign: 'center',
-        fontWeight: '500',
     },
 
     imgContainer: {
@@ -26,14 +27,28 @@ export const styles = StyleSheet.create({
 
     formUser: {
         paddingVertical: 20,
-        gap: 25,
+        gap: 20,
         flexDirection: 'column'
     },
 
-    verifyPassword: {
-        marginBottom: 20
-    }, 
+    firtsFilds: {
+        gap: 25
+    },
 
+    verifyPasswordContainer: {
+        flexDirection: 'row',
+        marginBottom: 30,
+        gap: 6,
+        alignItems: 'center'
+    },
+
+    verifyPassword: {
+        color: colors.neutral80
+    },
+
+    containerSubmit: {
+        marginTop: 10
+    },
     dividerContainer: {
         flexDirection: 'row',
         alignItems: 'center',
@@ -56,6 +71,9 @@ export const styles = StyleSheet.create({
         flexDirection: "row",
         gap: 4,
         justifyContent: "center"
+    },
+    linkFooterText:{
+        color: colors.primary
     }
 
 });

@@ -5,14 +5,18 @@ export const styles = StyleSheet.create({
     container: {
         flex: 1,
         padding: 16,
+    },
+    containerForm: {
+        flex: 1,
         justifyContent: 'space-between',
     },
+
     title: {
         paddingVertical: 18,
         paddingHorizontal: 8,
         fontSize: 28,
         width: "100%",
-        textAlign: 'center',
+        textAlign: 'left',
     },
     imgContainer: {
         alignItems: 'center',
@@ -24,7 +28,7 @@ export const styles = StyleSheet.create({
     },
     formUser: {
         paddingVertical: 20,
-        gap: 28,
+        gap: 30,
         flexDirection: 'column'
     },
     forgotPassword: {
