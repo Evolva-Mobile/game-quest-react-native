@@ -3,6 +3,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 // Importando telas
 import LoginScreen from '../screens/auth/login';
+import PageInitial from '../screens/page-initial';
+
 
 // Definindo tipos das rotas
 export type RootStackParamList = {
@@ -10,6 +12,7 @@ export type RootStackParamList = {
   Register: undefined;
   ForguetPassword: undefined;
   Details: { itemId: number; otherParam?: string }; // com parâmetros
+  PageInitial: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -17,7 +20,7 @@ const Stack = createNativeStackNavigator<RootStackParamList>();
 const AppRoutes: React.FC = () => {
   return (
     <Stack.Navigator
-      initialRouteName="Login"
+      initialRouteName="PageInitial"
       screenOptions={{
         headerShown: false,
         contentStyle: { backgroundColor: '#FFF' }
@@ -25,6 +28,8 @@ const AppRoutes: React.FC = () => {
       <Stack.Screen name="Login" component={LoginScreen} />
       <Stack.Screen name="Register" component={LoginScreen} />
       <Stack.Screen name="ForguetPassword" component={LoginScreen} />
+      
+      <Stack.Screen name="PageInitial" component={PageInitial} />
     </Stack.Navigator>
   );
 }

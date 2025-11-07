@@ -14,4 +14,8 @@ export const styles = StyleSheet.create({
         gap: 28,
         flexDirection: 'column'
     },
+    imgInitial:{
+        width:368,
+        height: 368,
+    },
 });
