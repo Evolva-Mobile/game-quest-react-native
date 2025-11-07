@@ -3,7 +3,7 @@
 import ImageInitial from "@/assets/images/Scenes/2x/Victory-2x.png";
 import { Button } from "@/src/components/ui/Button";
 import { useState } from "react";
-import { Image, Text, View } from "react-native";
+import { Image, Text, TouchableOpacity, View } from "react-native";
 import { styles } from '../auth/login/style';
 
 
@@ -17,10 +17,18 @@ export default function PageInitial() {
                         <View style={styles.imgContainer}>
                         <Image source={ImageInitial} style={styles.imgInitial} />
                         </View>
-                        <Text>1</Text>
-                        <Button background={"#000"}onPress={ () => setStep(2) } >
-                        Aperte aqui
+                        <Text style={{padding: 18, fontSize: 32, textAlign: "center", fontWeight: 500}}>Lorem Ipsum</Text>
+                        <Button background={"#dc0d0dff"}onPress={ () => setStep(2) } >
+                            Next
                         </Button>
+                        <TouchableOpacity 
+                            onPress={ () => setStep(3) } 
+                            style={{ alignSelf: 'flex-end', padding: 10 }} 
+                        >
+                            <Text style={{ fontSize: 16, color: '#555' }}>
+                            Skip
+                            </Text>
+                        </TouchableOpacity>
                     </>
                 );
             case 2:
@@ -29,10 +37,19 @@ export default function PageInitial() {
                         <View style={styles.imgContainer}>
                         <Image source={ImageInitial} style={styles.imgInitial} />
                         </View>
-                        <Text>2</Text>
-                        <Button background={"#000"}onPress={ () => setStep(3) } >
-                        Aperte aqui
+                        <Text style={{padding: 18, fontSize: 32, textAlign: "center", fontWeight: 500}}>Lorem Ipsum</Text>
+                        
+                        <Button background={"#139c53ff"}onPress={ () => setStep(3) } >
+                        Next
                         </Button>
+                        <TouchableOpacity 
+                            onPress={ () => setStep(3) } 
+                            style={{ alignSelf: 'flex-end', padding: 10 }} 
+                        >
+                            <Text style={{ fontSize: 16, color: '#555' }}>
+                            Skip
+                            </Text>
+                        </TouchableOpacity>
                     </>
                 );
             case 3:
@@ -42,8 +59,8 @@ export default function PageInitial() {
                         <Image source={ImageInitial} style={styles.imgInitial} />
                         </View>
                         <Text>3</Text>
-                        <Button background={"#000"} >
-                        Aperte aqui
+                        <Button background={"#dc0d0dff"} >
+                            Next
                         </Button>
                     </>     
             );
