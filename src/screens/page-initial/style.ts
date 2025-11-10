@@ -4,16 +4,6 @@ export const styles = StyleSheet.create({
     imgContainer: {
         alignItems: 'center'
     },
-    imgLogin: {
-        width: 205,
-        height: 205,
-
-    },
-    formUser: {
-        paddingVertical: 20,
-        gap: 28,
-        flexDirection: 'column'
-    },
     imgInitial:{
         width:368,
         height: 368,
