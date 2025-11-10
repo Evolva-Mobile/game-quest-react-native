@@ -10,6 +10,7 @@ import { styles } from './style';
 import { Button } from '@/src/components/ui/Button';
 import { ButtonGoogle } from '@/src/components/ui/ButtonGoogle';
 import { GlobalText } from '@/src/components/ui/GlobalText';
+import { USER } from '@/src/config/api-routes/user';
 
 export type UserProps = {
     email: string;
@@ -24,11 +25,10 @@ export default function LoginScreen() {
     });
 
     const handleSubmit = async () => {
-        console.log("usuario", user);
         try {
-            const response = await PostRequest("", user)
-            if (response.sucess) {
-
+            const response = await PostRequest(USER.LOGIN(), user)
+            if (response) {
+                navigation.navigate('Settings')
             }
         } catch (error) {
             console.log("Erro ao logar na conta: ", error);

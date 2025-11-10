@@ -28,10 +28,9 @@ export default function RegisterScreen() {
     })
 
     const handleSubmit = async () => {
-        console.log("usuario", user);
         try {
             const response = await PostRequest(USER.REGISTER(), user)
-            if (response.sucess) {
+            if (response) {
                 console.log("conta criada");
                 navigation.navigate('Login')
             }
