@@ -51,6 +51,9 @@ export default function EditUserScreen() {
             </View>
             <View style={styles.containerForm}>
                 <View style={styles.formUser}>
+                    <View>
+                        <Image></Image>
+                    </View>
                     <InputText
                         label="Nome"
                         value={user.name}
