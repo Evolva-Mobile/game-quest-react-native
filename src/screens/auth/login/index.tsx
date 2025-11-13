@@ -39,20 +39,17 @@ export default function LoginScreen() {
     return (
         <View style={styles.container}>
             <View>
-                <GlobalText variant='medium' style={styles.title}>
-                    Acompanhe suas metas e transforme tarefas em conquistas
+                <GlobalText variant='bold' style={styles.title}>
+                    Entrar
                 </GlobalText>
-                
-                <View style={styles.imgContainer}>
-                    <Image source={ImageLogin} style={styles.imgLogin} />
-                </View>
             </View>
 
             <View style={styles.formUser}>
                 <InputText
                     label="E-mail"
                     value={user.email}
-                    onChangeText={(text) => setUser({ ...user, email: text })}
+                    onChangeText={(text) => setUser({ ...user, email: text })} 
+                    icon={'User'}                
                 />
 
                 <View>
@@ -61,7 +58,9 @@ export default function LoginScreen() {
                         type="password"
                         value={user.password}
                         onChangeText={(text) => setUser({ ...user, password: text })}
+                        icon={'KeySquare'}
                     />
+
                     <TouchableOpacity onPress={() => navigation.navigate('ForgotPassword')}>
                         <GlobalText style={styles.forgotPassword}>Esqueci minha senha</GlobalText>
                     </TouchableOpacity>

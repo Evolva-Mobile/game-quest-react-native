@@ -10,7 +10,7 @@ export const styles = StyleSheet.create({
     title: {
         paddingVertical: 18,
         paddingHorizontal: 8,
-        fontSize: 28,
+        fontSize: 42,
         width: "100%",
         textAlign: 'center',
     },
@@ -24,7 +24,7 @@ export const styles = StyleSheet.create({
     },
     formUser: {
         paddingVertical: 20,
-        gap: 28,
+        gap: 18,
         flexDirection: 'column'
     },
     forgotPassword: {

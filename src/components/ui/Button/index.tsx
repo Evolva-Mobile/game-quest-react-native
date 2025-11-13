@@ -5,7 +5,7 @@ import { colors } from "@/src/styles/theme";
 
 type ButtonProps = {
   children: ReactNode;
-  color?: "primary" | "secondary" | string; // aceita nomes OU hex
+  color?: "primary" | "secondary" | string;
   icon?: string;
   onPress?: () => void;
 };
@@ -13,7 +13,7 @@ type ButtonProps = {
 
 export function Button({
   children,
-  color = "primary", // fallback → primary
+  color = "primary",
   icon,
   onPress,
 }: ButtonProps) {
@@ -26,7 +26,7 @@ export function Button({
         styles.btnContainer,
         {
           backgroundColor,
-          justifyContent: icon ? "space-around" : "center",
+          justifyContent: icon ? "space-between" : "center",
         },
       ]}
       onPress={onPress}
@@ -42,10 +42,10 @@ export function Button({
 
 const styles = StyleSheet.create({
     btnContainer: {
-        borderRadius: 18,
+        borderRadius: 50,
         paddingHorizontal: 8,
         paddingVertical: 14,
-        height: 55,
+        height: 70,
         flexDirection: "row",
         alignItems: 'center',
         gap: 8,
