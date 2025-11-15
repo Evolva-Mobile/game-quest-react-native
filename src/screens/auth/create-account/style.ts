@@ -4,14 +4,25 @@ import { StyleSheet } from 'react-native';
 export const styles = StyleSheet.create({
     container: {
         flex: 1,
-        padding: 16,
+        paddingHorizontal: 16,
+        paddingVertical: 24,
         justifyContent: 'space-between',
+    },
+
+    headerContainer: {
+        alignItems: 'center',
+        justifyContent: "center"
+    },
+
+    img: {
+        width: 60,
+        height: 60,
     },
 
     title: {
         paddingVertical: 18,
         paddingHorizontal: 8,
-        fontSize: 32,
+        fontSize: 42,
         width: "100%",
         textAlign: 'center',
     },
@@ -43,12 +54,14 @@ export const styles = StyleSheet.create({
     },
 
     verifyPassword: {
-        color: colors.neutral80
+        color: colors.gray100,
+        fontSize: 12
     },
 
     containerSubmit: {
         marginTop: 10
     },
+
     dividerContainer: {
         flexDirection: 'row',
         alignItems: 'center',
@@ -61,10 +74,11 @@ export const styles = StyleSheet.create({
         fontSize: 14,
         color: colors.neutral80
     },
-    line: {
-        flex: 1,
-        height: 1,
-        backgroundColor: "#b9bfcb",
+
+    footerContainer: {
+        gap: 28,
+        alignItems: "center",
+        width: "100%"
     },
 
     footerText: {
@@ -72,8 +86,8 @@ export const styles = StyleSheet.create({
         gap: 4,
         justifyContent: "center"
     },
-    linkFooterText:{
-        color: colors.primary
-    }
 
+    linkFooterText: {
+        color: colors.neutral100
+    }
 });

@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Image, Text, TouchableOpacity, View } from 'react-native';
 
-import ImageLogin from "@/assets/images/Scenes/2x/Victory-2x.png";
+import ImageLogin from "@/assets/images/principal/coin.png";
 
 import { InputText } from '@/src/components/ui/InputText';
 import { PostRequest } from '@/src/config/api-request/PostRequest';
@@ -39,54 +39,49 @@ export default function LoginScreen() {
     return (
         <View style={styles.container}>
             <View>
-                <GlobalText variant='bold' style={styles.title}>
-                    Entrar
-                </GlobalText>
-            </View>
+                <View style={styles.headerContainer}>
+                    <Image source={ImageLogin} style={styles.img} />
+                    <GlobalText variant='bold' style={styles.title}>
+                        Entrar
+                    </GlobalText>
+                </View>
 
-            <View style={styles.formUser}>
-                <InputText
-                    label="E-mail"
-                    value={user.email}
-                    onChangeText={(text) => setUser({ ...user, email: text })} 
-                    icon={'User'}                
-                />
-
-                <View>
+                <View style={styles.formUser}>
                     <InputText
-                        label="Senha"
-                        type="password"
-                        value={user.password}
-                        onChangeText={(text) => setUser({ ...user, password: text })}
-                        icon={'KeySquare'}
+                        label="E-mail"
+                        value={user.email}
+                        onChangeText={(text) => setUser({ ...user, email: text })}
+                        icon={'User'}
                     />
 
-                    <TouchableOpacity onPress={() => navigation.navigate('ForgotPassword')}>
-                        <GlobalText style={styles.forgotPassword}>Esqueci minha senha</GlobalText>
-                    </TouchableOpacity>
-                    <GlobalText />
-                </View>
+                    <View>
+                        <InputText
+                            label="Senha"
+                            type="password"
+                            value={user.password}
+                            onChangeText={(text) => setUser({ ...user, password: text })}
+                            icon={'KeySquare'}
+                        />
 
-                <View>
-                    <Button onPress={handleSubmit}>
-                        Entrar
-                    </Button>
-
-                    <View style={styles.dividerContainer}>
-                        <View style={styles.line} />
-                        <GlobalText style={styles.dividerText}>Ou acesse com</GlobalText>
-                        <View style={styles.line} />
+                        <TouchableOpacity onPress={() => navigation.navigate('ForgotPassword')}>
+                            <GlobalText variant={'semibold'} style={styles.forgotPassword}>Esqueci minha senha</GlobalText>
+                        </TouchableOpacity>
+                        <GlobalText />
                     </View>
 
-                    <ButtonGoogle />
+
                 </View>
             </View>
 
-            <View style={styles.footerText}>
-                <GlobalText>Ainda não tem uma conta? </GlobalText>
-                <TouchableOpacity onPress={() => navigation.navigate('Register')}>
-                    <GlobalText style={styles.linkFooterText}>Criar conta</GlobalText>
+            <View style={styles.footerContainer}>
+                <Button onPress={handleSubmit} icon='Swords'>
+                    Entrar
+                </Button>
+
+                <TouchableOpacity onPress={() => navigation.navigate('Register')}  >
+                    <GlobalText style={styles.linkFooterText} variant='bold'>Criar conta</GlobalText>
                 </TouchableOpacity>
+
             </View>
         </View>
     );

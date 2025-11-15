@@ -10,6 +10,8 @@ export const colors = {
     gray90: '#E5E5E5',
     gray80: '#F7F7F7',
     red100: '#fe0032',
+    
+    withe100: '#FFF',
 
     primary: '#FFD900',
     secondary: '#AC7F5E'
@@ -19,6 +21,7 @@ export const colors = {
 export const fonts = {
     regular: "WorkSans_400Regular",
     medium: 'WorkSans_500Medium',
+    semiBold: "WorkSans_600SemiBold",
     bold: 'WorkSans_700Bold',
     medieval_regular: "Oldenburg_400Regular"
 }
